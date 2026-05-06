@@ -65,7 +65,7 @@ const GameCanvas = ({
 
     // Helpers
     const spawnAnimal = () => {
-      const types = ['blossom', 'buttercup', 'professor', 'mayor', 'bellum', 'octi'];
+      const types = ['blossom', 'buttercup', 'professor', 'mayor', 'bellum', 'octi', 'kitten', 'puppy'];
       const type = types[Math.floor(Math.random() * types.length)];
       const width = 40;
       const x = Math.random() * (canvas.width - width * 2) + width;
@@ -119,6 +119,36 @@ const GameCanvas = ({
           color
         });
       }
+    };
+
+    const drawKitten = (ctx, x, y, size) => {
+      ctx.fillStyle = '#ff9ff3';
+      ctx.beginPath(); ctx.arc(x, y, size/2, 0, Math.PI * 2); ctx.fill();
+      // Ears
+      ctx.beginPath(); ctx.moveTo(x - size/2, y - size/4); ctx.lineTo(x - size/2 + 5, y - size/2 - 10); ctx.lineTo(x - size/4 + 5, y - size/2 + 5); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(x + size/2, y - size/4); ctx.lineTo(x + size/2 - 5, y - size/2 - 10); ctx.lineTo(x + size/4 - 5, y - size/2 + 5); ctx.fill();
+      // Eyes
+      ctx.fillStyle = '#222';
+      ctx.beginPath(); ctx.arc(x - 5, y, 2, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + 5, y, 2, 0, Math.PI*2); ctx.fill();
+    };
+
+    const drawPuppy = (ctx, x, y, size) => {
+      ctx.fillStyle = '#c8d6e5';
+      ctx.beginPath(); ctx.arc(x, y, size/2, 0, Math.PI * 2); ctx.fill();
+      // Floppy ears
+      ctx.fillStyle = '#8395a7';
+      ctx.beginPath(); ctx.ellipse(x - size/2 - 2, y, 6, 12, -Math.PI/6, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(x + size/2 + 2, y, 6, 12, Math.PI/6, 0, Math.PI*2); ctx.fill();
+      // Eyes
+      ctx.fillStyle = '#222';
+      ctx.beginPath(); ctx.arc(x - 6, y - 2, 2.5, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + 6, y - 2, 2.5, 0, Math.PI*2); ctx.fill();
+      // Snout
+      ctx.fillStyle = '#fff';
+      ctx.beginPath(); ctx.arc(x, y + 5, 6, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#222';
+      ctx.beginPath(); ctx.arc(x, y + 3, 2, 0, Math.PI*2); ctx.fill();
     };
 
     const drawBlossom = (ctx, x, y, size) => {
@@ -477,6 +507,8 @@ const GameCanvas = ({
         else if (a.type === 'mayor') drawMayor(ctx, a.x, a.y, a.width);
         else if (a.type === 'bellum') drawBellum(ctx, a.x, a.y, a.width);
         else if (a.type === 'octi') drawOcti(ctx, a.x, a.y, a.width);
+        else if (a.type === 'kitten') drawKitten(ctx, a.x, a.y, a.width);
+        else if (a.type === 'puppy') drawPuppy(ctx, a.x, a.y, a.width);
       });
 
       // Draw Drones
