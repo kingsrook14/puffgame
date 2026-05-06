@@ -111,7 +111,7 @@ function App() {
                 }}
               >
                 <Zap fill="#fbc531" color="#fbc531" />
-                SONIC SCREAM! (Space)
+                SONIC SCREAM!
               </button>
             )}
           </div>
