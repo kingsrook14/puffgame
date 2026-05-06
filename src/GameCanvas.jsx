@@ -65,7 +65,7 @@ const GameCanvas = ({
 
     // Helpers
     const spawnAnimal = () => {
-      const types = ['kitten', 'puppy', 'bunny', 'bear', 'turtle', 'bird'];
+      const types = ['blossom', 'buttercup', 'professor', 'mayor', 'bellum', 'octi'];
       const type = types[Math.floor(Math.random() * types.length)];
       const width = 40;
       const x = Math.random() * (canvas.width - width * 2) + width;
@@ -121,116 +121,124 @@ const GameCanvas = ({
       }
     };
 
-    const drawKitten = (ctx, x, y, size) => {
+    const drawBlossom = (ctx, x, y, size) => {
+      // Hair (Orange)
+      ctx.fillStyle = '#ff7f00';
+      ctx.beginPath(); ctx.arc(x, y, size/2 + 2, 0, Math.PI*2); ctx.fill();
+      // Bow (Red)
+      ctx.fillStyle = '#ff0000';
+      ctx.beginPath(); ctx.moveTo(x, y - size/2); ctx.lineTo(x - 15, y - size); ctx.lineTo(x, y - size/2 - 5); ctx.lineTo(x + 15, y - size); ctx.fill();
+      // Face (Peach)
+      ctx.fillStyle = '#ffddca';
+      ctx.beginPath(); ctx.arc(x, y + 2, size/2 - 2, 0, Math.PI*2); ctx.fill();
+      // Eyes (Pink)
       ctx.fillStyle = '#ff9ff3';
-      ctx.beginPath();
-      ctx.arc(x, y, size/2, 0, Math.PI * 2);
-      ctx.fill();
-      // Ears
-      ctx.beginPath();
-      ctx.moveTo(x - size/2, y - size/4);
-      ctx.lineTo(x - size/2 + 5, y - size/2 - 10);
-      ctx.lineTo(x - size/4 + 5, y - size/2 + 5);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.moveTo(x + size/2, y - size/4);
-      ctx.lineTo(x + size/2 - 5, y - size/2 - 10);
-      ctx.lineTo(x + size/4 - 5, y - size/2 + 5);
-      ctx.fill();
-      // Eyes
-      ctx.fillStyle = '#222';
-      ctx.beginPath(); ctx.arc(x - 5, y, 2, 0, Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.arc(x + 5, y, 2, 0, Math.PI*2); ctx.fill();
-    };
-
-    const drawPuppy = (ctx, x, y, size) => {
-      ctx.fillStyle = '#c8d6e5';
-      ctx.beginPath();
-      ctx.arc(x, y, size/2, 0, Math.PI * 2);
-      ctx.fill();
-      // Floppy ears
-      ctx.fillStyle = '#8395a7';
-      ctx.beginPath();
-      ctx.ellipse(x - size/2 - 2, y, 6, 12, -Math.PI/6, 0, Math.PI*2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.ellipse(x + size/2 + 2, y, 6, 12, Math.PI/6, 0, Math.PI*2);
-      ctx.fill();
-      // Eyes
-      ctx.fillStyle = '#222';
-      ctx.beginPath(); ctx.arc(x - 6, y - 2, 2.5, 0, Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.arc(x + 6, y - 2, 2.5, 0, Math.PI*2); ctx.fill();
-      // Snout
-      ctx.fillStyle = '#fff';
-      ctx.beginPath(); ctx.arc(x, y + 5, 6, 0, Math.PI*2); ctx.fill();
-      ctx.fillStyle = '#222';
-      ctx.beginPath(); ctx.arc(x, y + 3, 2, 0, Math.PI*2); ctx.fill();
-    };
-
-    const drawBunny = (ctx, x, y, size) => {
-      ctx.fillStyle = '#f1f2f6';
-      // Ears
-      ctx.beginPath(); ctx.ellipse(x - 5, y - size/2, 4, 12, 0, 0, Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.ellipse(x + 5, y - size/2, 4, 12, 0, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x - 8, y + 2, 6, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + 8, y + 2, 6, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#000';
+      ctx.beginPath(); ctx.arc(x - 8, y + 2, 3, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + 8, y + 2, 3, 0, Math.PI*2); ctx.fill();
+      // Dress (Pink)
       ctx.fillStyle = '#ff9ff3';
-      ctx.beginPath(); ctx.ellipse(x - 5, y - size/2, 2, 8, 0, 0, Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.ellipse(x + 5, y - size/2, 2, 8, 0, 0, Math.PI*2); ctx.fill();
-      // Face
-      ctx.fillStyle = '#f1f2f6';
-      ctx.beginPath(); ctx.arc(x, y, size/2, 0, Math.PI*2); ctx.fill();
-      // Eyes
-      ctx.fillStyle = '#222';
-      ctx.beginPath(); ctx.arc(x - 6, y - 2, 2, 0, Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.arc(x + 6, y - 2, 2, 0, Math.PI*2); ctx.fill();
+      ctx.fillRect(x - 10, y + size/2 - 4, 20, 10);
     };
 
-    const drawBear = (ctx, x, y, size) => {
-      ctx.fillStyle = '#cc8e35';
-      // Ears
-      ctx.beginPath(); ctx.arc(x - size/2, y - size/4, 8, 0, Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.arc(x + size/2, y - size/4, 8, 0, Math.PI*2); ctx.fill();
+    const drawButtercup = (ctx, x, y, size) => {
+      // Hair (Black)
+      ctx.fillStyle = '#000';
+      ctx.beginPath(); ctx.arc(x, y, size/2 + 2, 0, Math.PI*2); ctx.fill();
+      // Hair flips
+      ctx.beginPath(); ctx.moveTo(x - size/2, y); ctx.lineTo(x - size/2 - 10, y + 10); ctx.lineTo(x - size/2 + 5, y + 5); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(x + size/2, y); ctx.lineTo(x + size/2 + 10, y + 10); ctx.lineTo(x + size/2 - 5, y + 5); ctx.fill();
       // Face
-      ctx.beginPath(); ctx.arc(x, y, size/2, 0, Math.PI*2); ctx.fill();
-      // Snout
-      ctx.fillStyle = '#f3ca8c';
-      ctx.beginPath(); ctx.arc(x, y + 4, 8, 0, Math.PI*2); ctx.fill();
-      // Eyes & Nose
-      ctx.fillStyle = '#222';
-      ctx.beginPath(); ctx.arc(x - 6, y - 4, 2, 0, Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.arc(x + 6, y - 4, 2, 0, Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.arc(x, y + 2, 3, 0, Math.PI*2); ctx.fill();
-    };
-
-    const drawTurtle = (ctx, x, y, size) => {
+      ctx.fillStyle = '#ffddca';
+      ctx.beginPath(); ctx.arc(x, y + 2, size/2 - 2, 0, Math.PI*2); ctx.fill();
+      // Eyes (Green, angry angle)
       ctx.fillStyle = '#2ed573';
-      // Head
-      ctx.beginPath(); ctx.arc(x, y - size/2, 6, 0, Math.PI*2); ctx.fill();
-      // Shell
-      ctx.fillStyle = '#1e90ff';
-      ctx.beginPath(); ctx.arc(x, y, size/2, 0, Math.PI*2); ctx.fill();
-      // Pattern
-      ctx.strokeStyle = '#3742fa'; ctx.lineWidth = 2;
-      ctx.beginPath(); ctx.arc(x, y, size/3, 0, Math.PI*2); ctx.stroke();
-      // Eyes
-      ctx.fillStyle = '#222';
-      ctx.beginPath(); ctx.arc(x - 2, y - size/2 - 1, 1.5, 0, Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.arc(x + 2, y - size/2 - 1, 1.5, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x - 8, y + 2, 6, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + 8, y + 2, 6, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#000';
+      ctx.beginPath(); ctx.arc(x - 8, y + 2, 3, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + 8, y + 2, 3, 0, Math.PI*2); ctx.fill();
+      // Angry eyebrows
+      ctx.lineWidth = 2; ctx.strokeStyle = '#000';
+      ctx.beginPath(); ctx.moveTo(x - 15, y - 5); ctx.lineTo(x - 2, y); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x + 15, y - 5); ctx.lineTo(x + 2, y); ctx.stroke();
+      // Dress (Green)
+      ctx.fillStyle = '#2ed573';
+      ctx.fillRect(x - 10, y + size/2 - 4, 20, 10);
     };
 
-    const drawBird = (ctx, x, y, size) => {
-      ctx.fillStyle = '#ff4757';
-      // Body
-      ctx.beginPath(); ctx.arc(x, y, size/2, 0, Math.PI*2); ctx.fill();
-      // Wings
-      ctx.beginPath(); ctx.ellipse(x - size/2, y, 8, 4, 0, 0, Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.ellipse(x + size/2, y, 8, 4, 0, 0, Math.PI*2); ctx.fill();
-      // Beak
-      ctx.fillStyle = '#ffa502';
-      ctx.beginPath(); ctx.moveTo(x - 4, y + 2); ctx.lineTo(x + 4, y + 2); ctx.lineTo(x, y + 10); ctx.fill();
+    const drawProfessor = (ctx, x, y, size) => {
+      // Head (tall rectangle)
+      ctx.fillStyle = '#ffddca';
+      ctx.fillRect(x - 12, y - size/2, 24, size);
+      // Hair (Black boxy)
+      ctx.fillStyle = '#000';
+      ctx.fillRect(x - 14, y - size/2 - 5, 28, 10);
       // Eyes
-      ctx.fillStyle = '#222';
-      ctx.beginPath(); ctx.arc(x - 5, y - 4, 2, 0, Math.PI*2); ctx.fill();
-      ctx.beginPath(); ctx.arc(x + 5, y - 4, 2, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#000';
+      ctx.beginPath(); ctx.arc(x - 5, y - 5, 2, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + 5, y - 5, 2, 0, Math.PI*2); ctx.fill();
+      // Pipe
+      ctx.fillStyle = '#555';
+      ctx.fillRect(x + 5, y + 5, 15, 3);
+      ctx.fillRect(x + 17, y + 2, 5, 6);
+      // Coat
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(x - 15, y + size/2 - 5, 30, 15);
+      // Tie
+      ctx.fillStyle = '#000';
+      ctx.fillRect(x - 2, y + size/2 - 5, 4, 10);
+    };
+
+    const drawMayor = (ctx, x, y, size) => {
+      // Hat (Purple top hat)
+      ctx.fillStyle = '#9b59b6';
+      ctx.fillRect(x - 10, y - size/2 - 15, 20, 20);
+      ctx.fillRect(x - 15, y - size/2 + 5, 30, 4);
+      // Face
+      ctx.fillStyle = '#ffddca';
+      ctx.beginPath(); ctx.arc(x, y + 10, size/2 - 4, 0, Math.PI*2); ctx.fill();
+      // Monocle
+      ctx.strokeStyle = '#000'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(x + 6, y + 6, 4, 0, Math.PI*2); ctx.stroke();
+      // Mustache (White big)
+      ctx.fillStyle = '#fff';
+      ctx.beginPath(); ctx.arc(x - 6, y + 15, 6, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + 6, y + 15, 6, 0, Math.PI*2); ctx.fill();
+    };
+
+    const drawBellum = (ctx, x, y, size) => {
+      // Massive Orange Hair hiding face
+      ctx.fillStyle = '#e67e22';
+      ctx.beginPath(); ctx.arc(x, y - 5, size/2 + 5, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x - 10, y + 10, size/2, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + 10, y + 10, size/2, 0, Math.PI*2); ctx.fill();
+      // Red Dress body
+      ctx.fillStyle = '#e74c3c';
+      ctx.beginPath(); ctx.moveTo(x - 10, y + size/2 - 5); ctx.lineTo(x + 10, y + size/2 - 5); 
+      ctx.lineTo(x + 15, y + size/2 + 15); ctx.lineTo(x - 15, y + size/2 + 15); ctx.fill();
+    };
+
+    const drawOcti = (ctx, x, y, size) => {
+      // Purple Octopus
+      ctx.fillStyle = '#a29bfe';
+      ctx.beginPath(); ctx.arc(x, y - 5, size/2 - 2, 0, Math.PI*2); ctx.fill();
+      // Tentacles
+      for(let i=0; i<4; i++) {
+         ctx.beginPath(); ctx.arc(x - 12 + i*8, y + 10, 5, 0, Math.PI*2); ctx.fill();
+      }
+      // Eyes (Button eyes)
+      ctx.fillStyle = '#000';
+      ctx.beginPath(); ctx.arc(x - 6, y - 2, 3, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(x + 6, y - 2, 3, 0, Math.PI*2); ctx.fill();
+      // X in eyes
+      ctx.strokeStyle = '#fff'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x - 8, y - 4); ctx.lineTo(x - 4, y); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x - 4, y - 4); ctx.lineTo(x - 8, y); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x + 4, y - 4); ctx.lineTo(x + 8, y); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x + 8, y - 4); ctx.lineTo(x + 4, y); ctx.stroke();
     };
 
     const drawDrone = (ctx, x, y, size) => {
@@ -460,15 +468,15 @@ const GameCanvas = ({
         ctx.fill();
       });
 
-      // Draw Animals
+      // Draw Characters
       s.animals.forEach(a => {
         if (a.bubbled) drawBubble(ctx, a.x, a.y, a.width);
-        if (a.type === 'kitten') drawKitten(ctx, a.x, a.y, a.width);
-        else if (a.type === 'puppy') drawPuppy(ctx, a.x, a.y, a.width);
-        else if (a.type === 'bunny') drawBunny(ctx, a.x, a.y, a.width);
-        else if (a.type === 'bear') drawBear(ctx, a.x, a.y, a.width);
-        else if (a.type === 'turtle') drawTurtle(ctx, a.x, a.y, a.width);
-        else if (a.type === 'bird') drawBird(ctx, a.x, a.y, a.width);
+        if (a.type === 'blossom') drawBlossom(ctx, a.x, a.y, a.width);
+        else if (a.type === 'buttercup') drawButtercup(ctx, a.x, a.y, a.width);
+        else if (a.type === 'professor') drawProfessor(ctx, a.x, a.y, a.width);
+        else if (a.type === 'mayor') drawMayor(ctx, a.x, a.y, a.width);
+        else if (a.type === 'bellum') drawBellum(ctx, a.x, a.y, a.width);
+        else if (a.type === 'octi') drawOcti(ctx, a.x, a.y, a.width);
       });
 
       // Draw Drones

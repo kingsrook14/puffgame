@@ -122,12 +122,12 @@ function App() {
         <div className="overlay menu">
           <div className="menu-card">
             <h1>Bubbles' Bubble-Pop Adventure</h1>
-            <p className="subtitle">Help Bubbles rescue the animals!</p>
+            <p className="subtitle">Help Bubbles rescue her friends!</p>
             <div className="instructions">
-              <p>🐾 <strong>Click</strong> falling animals to bubble them so they float up to safety!</p>
+              <p>💖 <strong>Click</strong> falling friends to bubble them so they float up to safety!</p>
               <p>🛡️ <strong>Drag</strong> your mouse to create a shield and push away Mojo Jojo's drones.</p>
-              <p>🤖 <strong>Drones</strong> will pop bubbled animals!</p>
-              <p>💔 Don't let the animals fall to the ground!</p>
+              <p>🤖 <strong>Drones</strong> will pop bubbled friends!</p>
+              <p>💔 Don't let anyone fall to the ground!</p>
             </div>
             <button className="btn-primary" onClick={startGame}>
               <Sparkles className="icon" /> Play Now
@@ -154,8 +154,8 @@ function App() {
         <div className="overlay menu">
           <div className="menu-card win-card">
             <h1>You Won!</h1>
-            <p className="subtitle">YAY! You saved all the animals with Bubbles and Octi!</p>
-            <div className="win-image-placeholder">🐙 👧🏼</div>
+            <p className="subtitle">YAY! You saved Townsville from Mojo Jojo!</p>
+            <div className="win-image-placeholder">💖 🏙️</div>
             <p>Final Score: {score}</p>
             <button className="btn-primary" onClick={startGame}>
               Play Again
