@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
+
+:root {
+  --primary: #48dbfb;
+  --primary-dark: #0abde3;
+  --secondary: #ff9ff3;
+  --accent: #feca57;
+  --bg: #c8d6e5;
+  --text: #222f3e;
+  --card-bg: rgba(255, 255, 255, 0.85);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow: hidden; /* For game canvas */
+}
+
+h1, h2, h3 {
+  font-weight: 800;
+}
